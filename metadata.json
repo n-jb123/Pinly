@@ -1,0 +1,7 @@
+{
+  "name": "Pinly - Client Review & Approval Platform",
+  "description": "Client review and approval platform for freelancers and small agencies with pinned annotations, version comparison, and verified sign-off.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+

@@ -1,0 +1,131 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg: #F7F5F0;
+    --surface: #FFFFFF;
+    --border: #E3DFD6;
+    --text: #0F1A2E;
+    --muted: #5B6475;
+    --primary: #FF5A3C;
+    --primary-text: #0F1A2E;
+    --ink: #0F1A2E;
+    --success: #1F8F68;
+    --warning: #F5A524;
+    --danger: #C62828;
+    --canvas: #E8E6E1;
+  }
+
+  .dark {
+    --bg: #0B1220;
+    --surface: #0F1A2E;
+    --border: #22314A;
+    --text: #F7F5F0;
+    --muted: #9AA6BA;
+    --primary: #FF5A3C;
+    --primary-text: #0F1A2E;
+    --ink: #0F1A2E;
+    --success: #3DD6A0;
+    --warning: #F5A524;
+    --danger: #FF6B6B;
+    --canvas: #1A1D23;
+  }
+
+  body {
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  [dir="rtl"] body,
+  [dir="rtl"] {
+    font-family: 'IBM Plex Sans Arabic', 'Inter', system-ui, sans-serif;
+  }
+}
+
+/* Reduced Motion Enforcement */
+@media (prefers-reduced-motion: reduce), (update: slow) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.reduce-motion *,
+.reduce-motion *::before,
+.reduce-motion *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+  scroll-behavior: auto !important;
+}
+
+/* Custom Pin styling with required thin 2px white border and soft shadow */
+.pinly-pin {
+  width: 24px;
+  height: 24px;
+  border-radius: 9999px;
+  background-color: #FF5A3C;
+  border: 2px solid #FFFFFF;
+  color: #0F1A2E;
+  font-weight: 700;
+  font-size: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(15, 26, 46, 0.25);
+  cursor: pointer;
+  user-select: none;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.pinly-pin:hover {
+  transform: scale(1.15);
+  box-shadow: 0 6px 14px rgba(255, 90, 60, 0.4);
+}
+
+.pinly-pin.selected {
+  transform: scale(1.25);
+  outline: 3px solid rgba(255, 90, 60, 0.5);
+  box-shadow: 0 0 0 4px rgba(15, 26, 46, 0.2);
+}
+
+.pinly-pin.status-resolved {
+  background-color: #1F8F68;
+}
+
+.pinly-pin.status-closed {
+  background-color: #5B6475;
+}
+
+/* Buttons on coral must have dark navy text */
+.btn-primary {
+  background-color: #FF5A3C;
+  color: #0F1A2E;
+  font-weight: 600;
+  transition: all 0.15s ease;
+}
+.btn-primary:hover {
+  background-color: #f04e30;
+}
+
+/* Smooth canvas scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(100, 116, 139, 0.3);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(100, 116, 139, 0.5);
+}
